@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Ajustado para permitir rolagem */
+    flex-direction: column;
+    min-height: 100vh; /* Permite altura mínima da tela */
+    overflow-y: auto; /* Permite rolagem se necessário */
+}
+
+/* Animação para o título "Meus Projetos" */
+h1 {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDown 1s forwards; /* Animação para o título */
+}
+
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card img {
+    width: 100%; /* Faz com que a imagem ocupe toda a largura do card */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin-bottom: 15px; /* Espaçamento entre a imagem e o texto */
+    object-fit: cover; /* Garante que a imagem ocupe bem o espaço sem distorcer */
+}
+
+.container {
+    text-align: center;
+    padding: 20px; /* Adiciona espaçamento */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ajustando os cards para terem a opacidade inicial 0 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px; /* Aumenta a largura máxima */
+    margin: 0 auto; /* Centraliza os cards */
+    opacity: 0;
+    animation: fadeIn 1s 1s forwards; /* Fade-in dos cards */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeCard 1s ease-in-out forwards;
+    min-height: 200px; /* Garantir altura mínima para os cards */
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal */
+.modal {
+    display: none; /* Modal deve começar oculto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Permite rolagem se o conteúdo for muito grande */
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Ajuste a largura do modal para ser maior */
+    max-width: 900px; /* Limite o tamanho máximo para que não fique muito grande */
+    height: 80%; /* Ajuste a altura do modal */
+    max-height: 80%; /* Limite a altura do modal */
+    overflow: auto; /* Permite rolagem caso o conteúdo exceda a altura */
+    text-align: center;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Galeria de vídeos */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.gallery-card p {
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Vídeos dentro da galeria */
+video {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}

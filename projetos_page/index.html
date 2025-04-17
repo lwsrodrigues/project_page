@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meus Projetos</h1>
+        <div class="projects-grid">
+            <div class="card" onclick="openModal('projeto1')">
+                <img src="img/landingpageadv.png" alt="Projeto 1" class="project-image">
+                <h3>Landing Page</h3>
+                <p>Landing Page para escritório de advocacia</p>
+            </div>
+            <div class="card" onclick="openModal('projeto2')">
+                <img src="img/OIP.jpeg" alt="Projeto 2" class="project-image">
+                <h3>Desenvolvimento Mobile</h3>
+                <p>Aplicativo mobile em desenvolvimento</p>
+            </div>
+            <div class="card" onclick="openModal('projeto3')">
+                <img src="img/sistemaOS.png" alt="Projeto 3" class="project-image">
+                <h3>Sistema para Controle de Ordem de Serviços</h3>
+                <p>Sistema completo para gestão de OS</p>
+            </div>
+            <div class="card" onclick="openModal('projeto4')">
+                <img src="https://via.placeholder.com/250" alt="Projeto 4" class="project-image">
+                <h3>Sistema de passagens aéreas</h3>
+                <p>Sistema de reservas de voos</p>
+            </div>
+            <div class="card" onclick="openModal('projeto5')">
+                <img src="img/www.reallygreatsite.com1.png" alt="Projeto 5" class="project-image">
+                <h3>Mobile First</h3>
+                <p>Design responsivo para dispositivos móveis</p>
+            </div>
+            <div class="card" onclick="openModal('projeto6')">
+                <img src="img/Captura de tela 2025-03-22 214823.png" alt="Projeto 6" class="project-image">
+                <h3>Site JJ Investimentos</h3>
+                <p>Desenvolvimento e correções</p>
+            </div>
+            <div class="card" onclick="openModal('projeto7')">
+                <img src="img/IoT.png" alt="Projeto 7" class="project-image">
+                <h3>Sistema IoT - Fullstack</h3>
+                <p>Sistema completo para Internet das Coisas</p>
+            </div>
+            <div class="card" onclick="openModal('projeto8')">
+                <img src="img/IoT.png" alt="Projeto 8" class="project-image">
+                <h3>👷‍♂️ Sistema de Gerenciamento de EPIs</h3>
+                <p>Sistema alternativo para IoT</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="gallery" class="gallery">
+                <!-- Conteúdo será carregado dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados completos e específicos para cada projeto
+        const projetos = {
+            projeto1: {
+                title: 'Landing Page Advocacia',
+                media: [
+                    { 
+                        type: 'video', 
+                        src: 'videos/Site Escritório de Advocacia .mp4', 
+                        description: 'Landing Page profissional para escritório de advocacia com design moderno.' 
+                    },
+                    { 
+                        type: 'image',
+                        src: 'img/landingpageadv-detalhe1.png',
+                        description: 'Detalhe do cabeçalho e menu de navegação'
+                    },
+                    { 
+                        type: 'image',
+                        src: 'img/landingpageadv-detalhe2.png',
+                        description: 'Seção de áreas de atuação jurídica'
+                    }
+                ]
+            },
+            projeto2: {
+                title: 'Desenvolvimento Mobile',
+                media: [
+                    { 
+                        type: 'video',
+                        src: 'videos/app-mobile-demo.mp4',
+                        description: 'Demonstração das principais funcionalidades do app'
+                    },
+                    { 
+                        type: 'image',
+                        src: 'img/app-mobile-telas.png',
+                        description: 'Conjunto de telas do aplicativo'
+                    }
+                ]
+            },
+            projeto3: {
+                title: 'Sistema de Ordem de Serviço',
+                media: [
+                    { 
+                        type: 'image',
+                        src: 'img/sistemaOS-dashboard.png',
+                        description: 'Dashboard principal do sistema'
+                    },
+                    { 
+                        type: 'video',
+                        src: 'videos/sistemaOS-fluxo.mp4',
+                        description: 'Fluxo completo de criação de OS'
+                    },
+                    { 
+                        type: 'image',
+                        src: 'img/sistemaOS-relatorios.png',
+                        description: 'Módulo de relatórios gerenciais'
+                    }
+                ]
+            },
+            projeto4: {
+                title: 'Sistema de Passagens Aéreas',
+                media: [
+                    { 
+                        type: 'video',
+                        src: 'videos/passagens-busca.mp4',
+                        description: 'Sistema de busca com filtros avançados'
+                    },
+                    { 
+                        type: 'image',
+                        src: 'img/passagens-checkout.png',
+                        description: 'Tela de finalização de reserva'
+                    }
+                ]
+            },
+            projeto5: {
+                title: 'Projeto Mobile First',
+                media: [
+                    { 
+                        type: 'image',
+                        src: 'img/mobile-first-comparacao.png',
+                        description: 'Comparação entre versões desktop e mobile'
+                    },
+                    { 
+                        type: 'video',
+                        src: 'videos/mobile-first-responsivo.mp4',
+                        description: 'Demonstração da responsividade'
+                    }
+                ]
+            },
+            projeto6: {
+                title: 'JJ Investimentos',
+                media: [
+                    { 
+                        type: 'image',
+                        src: 'img/jj-invest-antes.png',
+                        description: 'Versão anterior do site'
+                    },
+                    { 
+                        type: 'image',
+                        src: 'img/jj-invest-depois.png',
+                        description: 'Versão após as correções'
+                    },
+                    { 
+                        type: 'video',
+                        src: 'videos/jj-invest-navegacao.mp4',
+                        description: 'Navegação pelo site atualizado'
+                    }
+                ]
+            },
+            projeto7: {
+                title: 'Sistema IoT - Fullstack',
+                media: [
+                    { 
+                        type: 'video',
+                        src: 'videos/iot-dashboard.mp4',
+                        description: 'Dashboard de monitoramento IoT'
+                    },
+                    { 
+                        type: 'image',
+                        src: 'img/iot-dispositivos.png',
+                        description: 'Painel de gerenciamento de dispositivos'
+                    }
+                ]
+            },
+            projeto8: {
+                title: '👷‍♂️ Sistema de Gerenciamento de EPIs',
+                media: [
+                    { 
+                        type: 'image',
+                        src: 'img/iot2-arquitetura.png',
+                        description: 'Diagrama da arquitetura do sistema'
+                    },
+                    { 
+                        type: 'video',
+                        src: 'videos/iot2-funcionamento.mp4',
+                        description: 'Demonstração do sistema em operação'
+                    }
+                ]
+            }
+        };
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById("modal").style.display = "none";
+        });
+
+        function openModal(projetoId) {
+            const projeto = projetos[projetoId];
+            if (!projeto) return;
+            
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("modal-title").textContent = projeto.title;
+            
+            let galleryHTML = '<div class="gallery-grid">';
+            
+            projeto.media.forEach(item => {
+                if (item.type === 'video') {
+                    galleryHTML += `
+                        <div class="gallery-card">
+                            <video controls width="100%">
+                                <source src="${item.src}" type="video/mp4">
+                                Seu navegador não suporta vídeos.
+                            </video>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                } else if (item.type === 'image') {
+                    galleryHTML += `
+                        <div class="gallery-card">
+                            <img src="${item.src}" alt="${item.description}" style="width:100%">
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                }
+            });
+            
+            galleryHTML += '</div>';
+            document.getElementById("gallery").innerHTML = galleryHTML;
+        }
+        
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+            // Pausa todos os vídeos ao fechar o modal
+            document.querySelectorAll('#gallery video').forEach(video => {
+                video.pause();
+            });
+        }
+    </script>
+</body>
+</html>
